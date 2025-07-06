@@ -2,15 +2,17 @@
 
   <PropertyGroup>
     <PackageId>BlazorExpress.Core</PackageId>
-    <Version>3.4.0</Version>
-    <PackageVersion>3.4.0</PackageVersion>
+    <Version>0.0.1</Version>
+    <PackageVersion>0.0.1</PackageVersion>
 
     <!--<PackageIconUrl></PackageIconUrl>-->
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/BlazorExpress/BlazorExpress.Core</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BlazorExpress/BlazorExpress.Core</RepositoryUrl>
+    <PackageTags>Blazor,BlazorExpress,BlazorExpressCore</PackageTags>
+    <Description>BlazorExpress.Core is an open-source library that provides abstract core components and foundational elements for building all BlazorExpress component libraries. It is intended as a base for reusable and extensible Blazor infrastructure.</Description>
     <Authors>Vikram Reddy</Authors>
-    <!--<Company>your_company</Company>-->
+    <Company>Blazor Express</Company>
     <Copyright>Copyright © 2025 Blazor Express</Copyright>
 
     <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
@@ -18,13 +20,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <OutputType>Library</OutputType>
     <IsPackable>true</IsPackable>
-    <PackageIcon>128X128.png</PackageIcon>
+    <PackageIcon>logo.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>https://github.com/BlazorExpress/BlazorExpress.Core/releases</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="" />
+    <None Include="logo.png" Pack="true" PackagePath="" />
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
