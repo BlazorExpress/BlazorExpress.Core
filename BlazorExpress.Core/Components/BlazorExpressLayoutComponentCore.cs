@@ -1,6 +1,6 @@
 ﻿namespace BlazorExpress.Core;
 
-public abstract class BlazorExpressComponentCore : ComponentBase, IDisposable, IAsyncDisposable
+public abstract class BlazorExpressLayoutComponentCore : LayoutComponentBase, IDisposable, IAsyncDisposable
 {
     #region Fields and Constants
 
@@ -192,7 +192,7 @@ public abstract class BlazorExpressComponentCore : ComponentBase, IDisposable, I
 
     #region Other
 
-    ~BlazorExpressComponentCore()
+    ~BlazorExpressLayoutComponentCore()
     {
         Dispose(false);
     }
