@@ -133,17 +133,27 @@ public abstract class BlazorExpressLayoutComponentCore : LayoutComponentBase, ID
 
     #region Properties, Indexers
 
-    [Parameter(CaptureUnmatchedValues = true)] public Dictionary<string, object> AdditionalAttributes { get; set; } = default!;
-
     /// <summary>
-    /// Gets or sets the CSS class.
+    /// Gets or sets additional attributes that will be applied to the component.
     /// <para>
     /// Default value is <see langword="null" />.
     /// </para>
     /// </summary>
     [AddedVersion("1.0.0")]
     [DefaultValue(null)]
-    [Description("Gets or sets the CSS class.")]
+    [Description("Gets or sets additional attributes that will be applied to the component.")]
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; } = default!;
+
+    /// <summary>
+    /// Gets or sets the CSS class name(s) to apply to the component.
+    /// <para>
+    /// Default value is <see langword="null" />.
+    /// </para>
+    /// </summary>
+    [AddedVersion("1.0.0")]
+    [DefaultValue(null)]
+    [Description("Gets or sets the CSS class name(s) to apply to the component.")]
     [Parameter]
     public string? Class { get; set; }
 
@@ -172,17 +182,18 @@ public abstract class BlazorExpressLayoutComponentCore : LayoutComponentBase, ID
 
     protected bool IsFirstRenderComplete { get; private set; }
 
-    [Inject] protected IJSRuntime JSRuntime { get; set; } = default!;
+    [Inject] 
+    protected IJSRuntime JSRuntime { get; set; } = default!;
 
     /// <summary>
-    /// Gets or sets the CSS style.
+    /// Gets or sets the CSS style string that defines the inline styles for the component.
     /// <para>
     /// Default value is <see langword="null" />.
     /// </para>
     /// </summary>
     [AddedVersion("1.0.0")]
     [DefaultValue(null)]
-    [Description("Gets or sets the CSS style.")]
+    [Description("Gets or sets the CSS style string that defines the inline styles for the component.")]
     [Parameter]
     public string? Style { get; set; }
 
