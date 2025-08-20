@@ -143,6 +143,7 @@ public abstract class BlazorExpressLayoutComponentCore : LayoutComponentBase, ID
     [DefaultValue(null)]
     [Description("Gets or sets additional attributes that will be applied to the component.")]
     [Parameter(CaptureUnmatchedValues = true)]
+    [ParameterTypeName("Dictionary<string, object>")]
     public Dictionary<string, object> AdditionalAttributes { get; set; } = default!;
 
     /// <summary>
@@ -155,6 +156,7 @@ public abstract class BlazorExpressLayoutComponentCore : LayoutComponentBase, ID
     [DefaultValue(null)]
     [Description("Gets or sets the CSS class name(s) to apply to the component.")]
     [Parameter]
+    [ParameterTypeName("string?")]
     public string? Class { get; set; }
 
     protected virtual string? ClassNames => Class;
@@ -178,6 +180,7 @@ public abstract class BlazorExpressLayoutComponentCore : LayoutComponentBase, ID
     [DefaultValue(null)]
     [Description("Gets or sets the ID. If not set, a unique ID will be generated.")]
     [Parameter]
+    [ParameterTypeName("string?")]
     public string? Id { get; set; }
 
     protected bool IsFirstRenderComplete { get; private set; }
@@ -195,6 +198,7 @@ public abstract class BlazorExpressLayoutComponentCore : LayoutComponentBase, ID
     [DefaultValue(null)]
     [Description("Gets or sets the CSS style string that defines the inline styles for the component.")]
     [Parameter]
+    [ParameterTypeName("string?")]
     public string? Style { get; set; }
 
     protected virtual string? StyleNames => Style;
