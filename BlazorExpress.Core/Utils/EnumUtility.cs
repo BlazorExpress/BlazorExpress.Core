@@ -12,21 +12,12 @@ public class EnumUtility<TEnum> where TEnum : Enum
     /// </returns>
     public static List<EnumItem> GetEnumItems()
     {
-        return Enum.GetValues(typeof(TEnum))
-                   .Cast<TEnum>()
-                   .Select(e => new EnumItem { Value = Convert.ToInt32(e), Text = GetEnumDescription(e) })
-                   .ToList();
-    }
-
-    private static string GetEnumDescription(TEnum value)
-    {
-        var fieldInfo = value.GetType().GetField(value.ToString()!);
-        var descriptionAttribute = fieldInfo?.GetCustomAttributes(typeof(DescriptionAttribute), false)?.FirstOrDefault() as DescriptionAttribute;
-
-        if (descriptionAttribute is null)
-            return value.ToString()!;
-
-        return descriptionAttribute.Description;
+        return (from TEnum e in Enum.GetValues(typeof(TEnum))
+                select new EnumItem
+                {
+                    Value = Convert.ToInt32(e),
+                    Text = typeof(TEnum).GetDisplayName(e.ToString()) ?? e.ToString()
+                }).ToList();
     }
 
     #endregion
